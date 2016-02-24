@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Ola's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    </head>
+    <body>
+{% for service in services %}
+    <div>
+        <p>published: {{ service.published_date }}</p>
+        <h1><a href="">{{ service.title }}</a></h1>
+        <p>{{ service.text|linebreaks }}</p>
+    </div>
+{% endfor %}
+    </body>
+</html>
