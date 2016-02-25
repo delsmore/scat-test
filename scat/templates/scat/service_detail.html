@@ -8,6 +8,9 @@
             </div>-->
         {% endif %}
         <h2>{{ service.title }}</h2>
-        <p>{{ service.description|linebreaks }}</p>
+        <table class="table">
+        <th>Description</th><td>{{ service.description|linebreaks }}</td></tr>
+        <th>Category</th><td>{{ service.category|linebreaks }}</td></tr>
+         </table>
     </div>
 {% endblock %}
