@@ -3,8 +3,8 @@
 {% block content %}
 {% for service in services %}
     <div>
-        <p>published: {{ service.published_date }}</p>
-        <h1><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></h1>
+      <!--  <p>published: {{ service.published_date }}</p>-->
+        <h2><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></h2>
         <p>{{ service.text|linebreaks }}</p>
     </div>
 {% endfor %}

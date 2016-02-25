@@ -1,13 +1,13 @@
 {% extends 'scat/base.html' %}
 
 {% block content %}
-    <div class="post">
+    <div class="service">
         {% if service.published_date %}
-            <div class="date">
+          <!--  <div class="date">
                 {{ service.published_date }}
-            </div>
+            </div>-->
         {% endif %}
-        <h1>{{ service.title }}</h1>
-        <p>{{ service.text|linebreaks }}</p>
+        <h2>{{ service.title }}</h2>
+        <p>{{ service.description|linebreaks }}</p>
     </div>
 {% endblock %}
