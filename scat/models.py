@@ -11,6 +11,14 @@ class Type(models.Model):
     def __str__(self):
         return self.type
 		
+class Provider(models.Model):
+    college = models.CharField(max_length=50)
+    school = models.CharField(max_length=150)
+    def __str__(self):
+        return self.college + ' - ' + self.school
+    class Meta:
+         ordering = ['college','school']
+		
 class Person(models.Model):
     uun = models.CharField(max_length=8,default=None, blank=True, null=True)
     name = models.CharField(max_length=100)
@@ -34,6 +42,7 @@ class Service(models.Model):
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, blank=True, null=True)
     type = models.ForeignKey(Type, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    provider = models.ForeignKey(Provider, on_delete=models.CASCADE, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True)
     business_owner = models.ForeignKey(Person, related_name='bo', on_delete=models.CASCADE, default=None, blank=True, null=True)

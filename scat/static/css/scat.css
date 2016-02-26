@@ -1,3 +1,12 @@
 .page-header {
-	margin-top :100px
+	margin-top :80px;
+	border-bottom:none;
+	padding-bottom:5px
+}
+h1 {
+	0}
+h2.service {
+	background:#F4F5F7;
+	font-size:1.8em;
+	padding:8px
 }

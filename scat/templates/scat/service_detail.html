@@ -1,16 +1,42 @@
 {% extends 'scat/base.html' %}
+{% load staticfiles %}
+
 
 {% block content %}
+<div class="page-header">
+	       <h1 class="service">{{ service.title }}</h1>
+    </div>
     <div class="service">
         {% if service.published_date %}
           <!--  <div class="date">
                 {{ service.published_date }}
             </div>-->
         {% endif %}
-        <h2>{{ service.title }}</h2>
+       <h2 class="service">Service Details</h2>
         <table class="table">
-        <th>Description</th><td>{{ service.description|linebreaks }}</td></tr>
-        <th>Category</th><td>{{ service.category|linebreaks }}</td></tr>
+        <tr><th>Description</th><td>{{ service.description }}</td></tr>
+        <tr><th>Category</th><td>{{ service.category }}</td></tr>
+		<tr><th>Status</th><td>{{ service.status }}</td></tr>
+		<tr><th>Provider</th><td>{{ service.provider }}</td></tr>
          </table>
+		
+		 <h2 class="service">Accountability</h2>
+		 <h3>Service Owner</h3>
+		 <div class="media">
+		 
+  <div class="pull-left">
+    <a href="#" class="thumbnail">
+      <img class="media-object" style="width:120px" src="{% static 'people' %}/{{ service.service_owner.photo }}" alt="Photo of {{service.service_owner}}">
+   </a>
+  </div>
+  <div class="media-body">
+    <h4 style="margin-bottom:10px" class="media-heading">{{ service.service_owner }}</h4>
+	<p>Email: <a href="mailto:{{ service.service_owner.email }}">{{ service.service_owner.email }}</a></p>
+	<p>Phone: {{ service.service_owner.telephone }}</p>
+	<p>Dept: {{ service.service_owner.department }}</p>
+    
+  </div>
+</div>
+		 
     </div>
 {% endblock %}

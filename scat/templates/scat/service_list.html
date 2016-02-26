@@ -1,14 +1,28 @@
 {% extends 'scat/base.html' %}
- <div class="service-list">
-	<ul class="list-group">
+
 {% block content %}
+ <div class="page-header">
+	<!---{% if user.is_authenticated %}
+	<a href="{% url 'service_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+	{% endif %}-->
+       <h1>Service Catalogue</h1>
+    </div>
+ <div class="service-list">
+	<table class="table">
+	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
+
 {% for service in services %}
    
       <!--  <p>published: {{ service.published_date }}</p>-->
-        <li class="list-group-item"><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></li>
+     <tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></td>
+	 <td>{{ service.category }}</td>
+	 <td>{{ service.description }}</td>
+	<td>{{ service.provider }}</td>
        <!-- <p>{{ service.description|linebreaks }}</p>-->
-	
+	</tr>
 {% endfor %}
-{% endblock %}
-	</ul>
+
+</table>
     </div>
+{% endblock %}
+	
