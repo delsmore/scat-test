@@ -5,7 +5,7 @@ from .forms import ServiceForm
 
 # Create your views here.
 def service_list(request):
-    services = Service.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    services = Service.objects.filter(published_date__lte=timezone.now()).order_by('title')
     return render(request, 'scat/service_list.html', {'services':services})
     
 def service_detail(request, pk):

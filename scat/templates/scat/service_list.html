@@ -1,11 +1,14 @@
 {% extends 'scat/base.html' %}
-
+ <div class="service-list">
+	<ul class="list-group">
 {% block content %}
 {% for service in services %}
-    <div>
+   
       <!--  <p>published: {{ service.published_date }}</p>-->
-        <h2><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></h2>
-        <p>{{ service.text|linebreaks }}</p>
-    </div>
+        <li class="list-group-item"><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></li>
+       <!-- <p>{{ service.description|linebreaks }}</p>-->
+	
 {% endfor %}
 {% endblock %}
+	</ul>
+    </div>
