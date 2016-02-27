@@ -35,6 +35,11 @@ class Status(models.Model):
     stage = models.CharField(max_length=50)
     def __str__(self):
         return self.stage
+        
+class Support(models.Model):
+    team = models.CharField(max_length=200)
+    def __str__(self):
+        return self.team
 
 class Service(models.Model):
     title = models.CharField(max_length=200)
@@ -49,6 +54,7 @@ class Service(models.Model):
     service_owner = models.ForeignKey(Person, related_name='so', on_delete=models.CASCADE, default=None, blank=True, null=True)
     service_operations_manager = models.ForeignKey(Person, related_name='som', on_delete=models.CASCADE, default=None, blank=True, null=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200, default=None, blank=True, null=True)
 
     def publish(self):
@@ -60,5 +66,7 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+        
+    
 		
 

@@ -3,7 +3,7 @@
     <head>
         <title>SCAT</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
        
         <link rel="stylesheet" href="{% static 'css/scat.css' %}">
     </head>
@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Service Catalogue</a>
+          <a class="navbar-brand" href="/">Service Catalogue</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -28,31 +28,16 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
 	 <div class="container">
 	  <div class="row">
 
-     
-       
-  
-        <div class="col-sm-8">
-   
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
+
+            
             {% block content %}
             {% endblock %}
-            </div>
-        </div>
+           
+</div>
 		</div>
-		
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-		  
-		  
-		  </div>
-		  </div>
-		</div>
-    </div>
-	</div>
 </body>
 </html>

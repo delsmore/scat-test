@@ -3,6 +3,7 @@
 
 
 {% block content %}
+ <div class="col-md-8">
 <div class="page-header">
 	       <h1 class="service">{{ service.title }}</h1>
     </div>
@@ -13,22 +14,29 @@
             </div>-->
         {% endif %}
        <h2 class="service">Service Details</h2>
-        <table class="table">
+        <table class="table service-details">
         <tr><th>Description</th><td>{{ service.description }}</td></tr>
         <tr><th>Category</th><td>{{ service.category }}</td></tr>
 		<tr><th>Status</th><td>{{ service.status }}</td></tr>
 		<tr><th>Provider</th><td>{{ service.provider }}</td></tr>
          </table>
-		
+		 <h2 class="service">Support</h2>
+		 <table class="table service-details">
+        <tr><th>Documentation</th><td><a href="{{ service.documentation }}">{{ service.documentation }}</a></td></tr>
+         <tr><th>First Line</th><td>{{ service.support }}</td></tr>
+          <tr><th>Second Line</th><td>{{ service.documentation }}</td></tr>
+       
+         </table>
 		 <h2 class="service">Accountability</h2>
 		 <h3>Service Owner</h3>
 		 <div class="media">
-		 
+		 {% if service.service_owner.photo %}
   <div class="pull-left">
     <a href="#" class="thumbnail">
       <img class="media-object" style="width:120px" src="{% static 'people' %}/{{ service.service_owner.photo }}" alt="Photo of {{service.service_owner}}">
    </a>
   </div>
+  {% endif %}
   <div class="media-body">
     <h4 style="margin-bottom:10px" class="media-heading">{{ service.service_owner }}</h4>
 	<p>Email: <a href="mailto:{{ service.service_owner.email }}">{{ service.service_owner.email }}</a></p>
@@ -39,4 +47,14 @@
 </div>
 		 
     </div>
+    
+     </div>
+        
+		
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+		  
+		
+		  </div>
+		  </div>
 {% endblock %}

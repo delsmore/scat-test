@@ -12,13 +12,11 @@
 	<table class="table table-striped">
 	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
 
-{% for service in services %}
-
-      <!--  <p>published: {{ service.published_date }}</p>-->
-     <tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></td>
-	 <td>{{ service.category }}</td>
-	 <td>{{ service.description }}</td>
-	<td>{{ service.provider }}</td>
+{% for cat in cats %}
+ <tr><td><a href="{% url 'cat_detail' pk=service.pk %}">{{ cat.category }}</a></td>
+ 
+	 <td>{{ cat.category }}</td>
+	
        <!-- <p>{{ service.description|linebreaks }}</p>-->
 	</tr>
 
@@ -29,4 +27,5 @@
     </div>
     </div>
 {% endblock %}
+	
 	

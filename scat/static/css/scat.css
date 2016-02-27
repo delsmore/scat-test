@@ -4,9 +4,35 @@
 	padding-bottom:5px
 }
 h1 {
-	0}
+	}
 h2.service {
 	background:#F4F5F7;
 	font-size:1.8em;
 	padding:8px
+}
+.navbar-inverse
+{
+  background-color: #00325F;
+  border-top-color: #080808;
+  border-right-color: #080808;
+  border-bottom-color: #080808;
+  border-left-color: #080808;
+
+}
+
+.navbar-inverse .navbar-nav > .active > a
+{
+  color: #ffffff;
+  background-color: #041E42;
+}
+.navbar-inverse .navbar-nav  > li >a
+ {
+	color:#fff
+}
+.navbar-inverse .navbar-brand
+{
+  color: #fff;
+}
+table.service-details th {
+	width:150px
 }

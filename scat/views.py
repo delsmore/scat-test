@@ -1,5 +1,7 @@
 from django.shortcuts import render,  get_object_or_404, redirect
+from django.views.generic import ListView
 from . models import Service
+from . models import Category
 from django.utils import timezone
 from .forms import ServiceForm
 
@@ -8,9 +10,15 @@ def service_list(request):
     services = Service.objects.filter(published_date__lte=timezone.now()).order_by('title')
     return render(request, 'scat/service_list.html', {'services':services})
     
+def service_cats(request):
+    cats = Category.objects.filter().order_by('category')
+    return render(request, 'scat/service_cats.html', {'cats':cats})
+    
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
+    
+
 	
 def service_new(request):
 	if request.method == "POST":
@@ -24,3 +32,6 @@ def service_new(request):
 	else:
 		form = ServiceForm()
 	return render(request, 'scat/service_edit.html', {'form': form})
+	
+
+	
