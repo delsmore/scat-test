@@ -18,9 +18,10 @@ def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
     
-def category_detail(request, pk):
-    category = get_object_or_404(Category, pk=pk)
-    return render(request, 'scat/category_detail.html', {'category': category})
+def category_service(request, pk):
+    catname = get_object_or_404(Category, pk=pk)
+    services = Service.objects.filter(category=pk).order_by('title')
+    return render(request, 'scat/category_service.html', {'services': services})
     
 
 	

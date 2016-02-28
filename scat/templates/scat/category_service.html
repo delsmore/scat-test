@@ -1,0 +1,39 @@
+{% extends 'scat/base.html' %}
+
+{% block content %}
+    <div class="col-md-12">
+ <div class="page-header">
+	<!---{% if user.is_authenticated %}
+	<a href="{% url 'service_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+	{% endif %}-->
+       <h1>Service Catalogue</h1>
+    </div>
+ <div class="service-list">
+
+
+{% regroup services by category as category_list %}
+
+<table class="table table-striped">
+<tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
+
+{% for category in category_list %}
+  
+<h3>{{ category.grouper }}</h3>
+   
+{% for service in category.list %}
+        
+<tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></td>
+<td>{{ service.category }}</td>
+<td>{{ service.description }}</td>
+<td>{{ service.provider }}</td>
+      
+</tr>
+
+{% endfor %}
+
+{% endfor %}
+
+</table>
+    </div>
+    </div>
+{% endblock %}

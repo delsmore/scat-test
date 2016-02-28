@@ -8,14 +8,42 @@
 	{% endif %}-->
        <h1>Service Catalogue</h1>
     </div>
+    
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="well">
+          <h4 class="text-danger"><span class="label label-danger pull-right">- 9%</span> New Users </h4>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <h4 class="text-success"><span class="label label-success pull-right">+ 3%</span> Returning </h4>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <h4 class="text-primary"><span class="label label-primary pull-right">201</span> Sales </h4>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="well">
+          <h4 class="text-success"><span class="label label-success pull-right">+ 24%</span> Pageviews </h4>
+        </div>
+      </div>
+    </div><!--/row-->    
+  </div><!--/col-12-->
+</div><!--/row-->
+
  <div class="service-list">
 	<table class="table table-striped">
 	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
 
 {% for cat in cats %}
- <tr><td><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.category }}</a></td>
+ <tr><td><a href="{% url 'category_service' pk=cat.pk %}">{{ cat.category }}</a></td>
  
-	 <td>{{ cat.category }}</td>
+	 <td>{{ cat.name }}</td>
 	
        <!-- <p>{{ service.description|linebreaks }}</p>-->
 	</tr>

@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    category = models.CharField(max_length=200)
     def __str__(self):
-        return self.name
+        return self.category
 		
 class Type(models.Model):
     type = models.CharField(max_length=100)
@@ -40,6 +40,8 @@ class Support(models.Model):
     team = models.CharField(max_length=200)
     def __str__(self):
         return self.team
+    class Meta:
+         ordering = ['team']
 
 class Service(models.Model):
     title = models.CharField(max_length=200)
