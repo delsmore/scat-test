@@ -13,7 +13,7 @@
 	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
 
 {% for cat in cats %}
- <tr><td><a href="{% url 'cat_detail' pk=service.pk %}">{{ cat.category }}</a></td>
+ <tr><td><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.category }}</a></td>
  
 	 <td>{{ cat.category }}</td>
 	

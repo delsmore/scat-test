@@ -10,13 +10,17 @@ def service_list(request):
     services = Service.objects.filter(published_date__lte=timezone.now()).order_by('title')
     return render(request, 'scat/service_list.html', {'services':services})
     
-def service_cats(request):
+def category_list(request):
     cats = Category.objects.filter().order_by('category')
-    return render(request, 'scat/service_cats.html', {'cats':cats})
+    return render(request, 'scat/category_list.html', {'cats':cats})
     
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
+    
+def category_detail(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    return render(request, 'scat/category_detail.html', {'category': category})
     
 
 	

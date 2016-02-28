@@ -2,9 +2,9 @@ from django.db import models
 from django.utils import timezone
 
 class Category(models.Model):
-    category = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     def __str__(self):
-        return self.category
+        return self.name
 		
 class Type(models.Model):
     type = models.CharField(max_length=100)
