@@ -3,8 +3,12 @@ from django.utils import timezone
 
 class Category(models.Model):
     category = models.CharField(max_length=200)
+    summary = models.CharField(max_length=140, default=None, blank=True, null=True)
+    image = models.CharField(max_length=100,default=None, blank=True, null=True)
     def __str__(self):
         return self.category
+    class Meta:
+         ordering = ['category']
 		
 class Type(models.Model):
     type = models.CharField(max_length=100)
@@ -48,7 +52,8 @@ class Service(models.Model):
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     description = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, blank=True, null=True)
-    type = models.ForeignKey(Type, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    #type = models.ForeignKey(Type, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    type = models.ManyToManyField(Type)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True)

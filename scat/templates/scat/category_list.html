@@ -1,5 +1,5 @@
 {% extends 'scat/base.html' %}
-
+{% load staticfiles %}
 {% block content %}
     <div class="col-md-12">
  <div class="page-header">
@@ -9,32 +9,21 @@
        <h1>Service Catalogue</h1>
     </div>
     
+
+
 <div class="row">
-  <div class="col-sm-12">
-    <div class="row">
-      <div class="col-md-3">
-        <div class="well">
-          <h4 class="text-danger"><span class="label label-danger pull-right">- 9%</span> New Users </h4>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="well">
-          <h4 class="text-success"><span class="label label-success pull-right">+ 3%</span> Returning </h4>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="well">
-          <h4 class="text-primary"><span class="label label-primary pull-right">201</span> Sales </h4>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="well">
-          <h4 class="text-success"><span class="label label-success pull-right">+ 24%</span> Pageviews </h4>
-        </div>
-      </div>
-    </div><!--/row-->    
-  </div><!--/col-12-->
-</div><!--/row-->
+{% for cat in cats %}
+  <div class="col-md-3"><div style="backround:URL({% static 'images' %}/{{ cat.image }}" class="cat-panel">{{ cat.category }} </div></div>
+   {% if forloop.last %}
+</div>
+{% else %}
+     {% if forloop.counter|divisibleby:"4" %}
+</div>
+<div class="row">
+     {% endif %}
+   {% endif %}
+{% endfor %}
+</div>
 
  <div class="service-list">
 	<table class="table table-striped">
@@ -43,7 +32,7 @@
 {% for cat in cats %}
  <tr><td><a href="{% url 'category_service' pk=cat.pk %}">{{ cat.category }}</a></td>
  
-	 <td>{{ cat.name }}</td>
+	 <td></td>
 	
        <!-- <p>{{ service.description|linebreaks }}</p>-->
 	</tr>

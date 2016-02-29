@@ -21,7 +21,7 @@
 <h3>{{ category.grouper }}</h3>
    
 {% for service in category.list %}
-        
+   
 <tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></td>
 <td>{{ service.category }}</td>
 <td>{{ service.description }}</td>

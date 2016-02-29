@@ -4,8 +4,9 @@ from . models import Service
 from . models import Category
 from django.utils import timezone
 from .forms import ServiceForm
+from django.db.models import Q
 
-# Create your views here.
+
 def service_list(request):
     services = Service.objects.filter(published_date__lte=timezone.now()).order_by('title')
     return render(request, 'scat/service_list.html', {'services':services})
@@ -17,10 +18,11 @@ def category_list(request):
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
-    
+
+#services by category with type = Business	
 def category_service(request, pk):
     catname = get_object_or_404(Category, pk=pk)
-    services = Service.objects.filter(category=pk).order_by('title')
+    services = Service.objects.filter(type=1)
     return render(request, 'scat/category_service.html', {'services': services})
     
 
