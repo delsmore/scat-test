@@ -37,11 +37,29 @@ table.service-details th {
 	width:150px
 }
 .cat-panel {
-	background:url('/scat/static/images/library.jpg') top left;
+	
 	border-top:8px solid #041E42;
 	min-height:80px;
 	 box-shadow: 0px 4px 6px -5px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.1);
 	 margin:0 10px 20px
 
 }
-
+.panel-heading {
+padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: transparent;
+  }
+h3.panel-heading {
+font-size:1.4em;
+margin-top:0
+}
+h3.panel-heading a {
+ color: #283239;
+  text-decoration-line: none;
+  text-decoration-style: solid;
+  
+}
