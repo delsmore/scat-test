@@ -22,7 +22,7 @@ def service_detail(request, pk):
 #services by category with type = Business	
 def category_service(request, pk):
     catname = get_object_or_404(Category, pk=pk)
-    services = Service.objects.filter(type=1)
+    services = Service.objects.filter(category=pk)
     return render(request, 'scat/category_service.html', {'services': services})
     
 
