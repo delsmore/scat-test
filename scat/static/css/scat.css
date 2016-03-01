@@ -42,8 +42,12 @@ table.service-details th {
 	min-height:80px;
 	 box-shadow: 0px 4px 6px -5px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.1);
 	 margin:0 10px 20px
+	
 
 }
+.cat-body {
+ min-height:80px
+ }
 .panel-heading {
 padding-top: 15px;
   padding-right: 20px;
@@ -55,7 +59,8 @@ padding-top: 15px;
   }
 h3.panel-heading {
 font-size:1.4em;
-margin-top:0
+margin-top:0;
+
 }
 h3.panel-heading a {
  color: #283239;

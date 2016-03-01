@@ -10,7 +10,9 @@
     </div>
  <div class="service-list">
 
-
+{% for service in services %}
+{{ service.title }}
+{% endfor %}
 {% regroup services by category as category_list %}
 
 <table class="table table-striped">
