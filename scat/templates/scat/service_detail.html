@@ -28,12 +28,14 @@
        
          </table>
 		 <h2 class="service">Accountability</h2>
+		 <div class="content-box">
 		 <h3>Service Owner</h3>
-		 <div class="media">
-		 {% if service.service_owner.photo %}
+		
+		 <div class="media ">
+		 {% if service.service_owner.image %}
   <div class="pull-left">
     <a href="#" class="thumbnail">
-      <img class="media-object" style="width:120px" src="{% static 'people' %}/{{ service.service_owner.photo }}" alt="Photo of {{service.service_owner}}">
+      <img class="media-object" style="width:120px" src="{% static 'images/people' %}/{{ service.service_owner.image }}" alt="Photo of {{service.service_owner}}">
    </a>
   </div>
   {% endif %}
@@ -42,8 +44,9 @@
 	<p>Email: <a href="mailto:{{ service.service_owner.email }}">{{ service.service_owner.email }}</a></p>
 	<p>Phone: {{ service.service_owner.telephone }}</p>
 	<p>Dept: {{ service.service_owner.department }}</p>
-    
+    </div>
   </div>
+  <div class="clear"></div>
 </div>
 		 
     </div>

@@ -1,3 +1,9 @@
+body {
+	background:#F5F5F5
+}
+.table {
+	background:#fff
+}
 .page-header {
 	margin-top :80px;
 	border-bottom:none;
@@ -36,17 +42,23 @@ h2.service {
 table.service-details th {
 	width:150px
 }
+.content-box {
+	background:#fff;
+	padding:1px 10px 0;
+	border-top:1px solid #ddd
+}
 .cat-panel {
 	
 	border-top:8px solid #041E42;
 	min-height:80px;
 	 box-shadow: 0px 4px 6px -5px rgba(0, 0, 0, 0.3), 0px 0px 1px rgba(0, 0, 0, 0.1);
-	 margin:0 10px 20px
+	 margin:0 10px 20px;
+	 background:#fff
 	
 
 }
 .cat-body {
- min-height:80px
+ min-height:70px
  }
 .panel-heading {
 padding-top: 15px;
@@ -67,4 +79,7 @@ h3.panel-heading a {
   text-decoration-line: none;
   text-decoration-style: solid;
   
+}
+.clear {
+	clear:both
 }

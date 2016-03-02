@@ -1,5 +1,11 @@
 from django.db import models
 from django.utils import timezone
+from time import time
+
+
+	
+def only_filename(instance, filename):
+    return filename
 
 class Category(models.Model):
     category = models.CharField(max_length=200)
@@ -9,6 +15,10 @@ class Category(models.Model):
         return self.category
     class Meta:
          ordering = ['category']
+		 
+class CategoryImage(models.Model):
+    category = models.ForeignKey('Category', related_name='images')
+    image = models.ImageField(upload_to='scat/static/images/categories')
 		
 class Type(models.Model):
     type = models.CharField(max_length=100)
@@ -29,11 +39,14 @@ class Person(models.Model):
     email = models.CharField(max_length=100,default=None, blank=True, null=True)
     telephone = models.CharField(max_length=50,default=None, blank=True, null=True)
     department = models.CharField(max_length=100,default=None, blank=True, null=True)
-    photo = models.CharField(max_length=100,default=None, blank=True, null=True)
+    image = models.FileField(upload_to='C:/wamp/www/djangoproject/media/' + str(only_filename),default=None, blank=True, null=True)
     def __str__(self):
         return self.name
+   
     class Meta:
          ordering = ['name']
+		 
+
 		
 class Status(models.Model):
     stage = models.CharField(max_length=50)
@@ -63,6 +76,7 @@ class Service(models.Model):
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200, default=None, blank=True, null=True)
+    logo = models.ImageField(upload_to=only_filename, default=None, blank=True, null=True)
 
     def publish(self):
         self.published_date = timezone.now()

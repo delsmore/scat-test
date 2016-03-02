@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -131,3 +132,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+PROJECT_ROOT = 'C:/wamp/www/djangoproject/'
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home2/media/media.lawrence.com/media/"
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+MEDIA_ROOT = ('C:/wamp/www/djangoproject/media')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = ''
