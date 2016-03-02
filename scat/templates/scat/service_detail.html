@@ -35,7 +35,7 @@
 		 {% if service.service_owner.image %}
   <div class="pull-left">
     <a href="#" class="thumbnail">
-      <img class="media-object" style="width:120px" src="{% static 'images/people' %}/{{ service.service_owner.image }}" alt="Photo of {{service.service_owner}}">
+      <img class="media-object" style="width:120px" src="/media/{{ service.service_owner.image }}" alt="Photo of {{service.service_owner}}">
    </a>
   </div>
   {% endif %}

@@ -133,13 +133,13 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-PROJECT_ROOT = 'C:/wamp/www/djangoproject/'
+PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home2/media/media.lawrence.com/media/"
 #MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-MEDIA_ROOT = ('C:/wamp/www/djangoproject/media')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'

@@ -39,7 +39,7 @@ class Person(models.Model):
     email = models.CharField(max_length=100,default=None, blank=True, null=True)
     telephone = models.CharField(max_length=50,default=None, blank=True, null=True)
     department = models.CharField(max_length=100,default=None, blank=True, null=True)
-    image = models.FileField(upload_to='C:/wamp/www/djangoproject/media/' + str(only_filename),default=None, blank=True, null=True)
+    image = models.FileField(upload_to=only_filename,default=None, blank=True, null=True)
     def __str__(self):
         return self.name
    
