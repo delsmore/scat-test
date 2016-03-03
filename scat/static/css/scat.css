@@ -6,6 +6,7 @@ body {
 }
 .page-header {
 	margin-top :80px;
+	margin-left:20px;
 	border-bottom:none;
 	padding-bottom:5px
 }
@@ -82,4 +83,11 @@ h3.panel-heading a {
 }
 .clear {
 	clear:both
+}
+.service-sidebar {
+background:#fff;
+margin-top:80px;
+border-top:1px solid #ddd;
+padding:10px;
+min-height:200px
 }

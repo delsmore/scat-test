@@ -3,10 +3,11 @@
 
 
 {% block content %}
- <div class="col-md-8">
 <div class="page-header">
 	       <h1 class="service">{{ service.title }}</h1>
     </div>
+ <div class="col-md-8">
+
     <div class="service">
         {% if service.published_date %}
           <!--  <div class="date">
@@ -22,7 +23,10 @@
          </table>
 		 <h2 class="service">Support</h2>
 		 <table class="table service-details">
-        <tr><th>Documentation</th><td><a href="{{ service.documentation }}">{{ service.documentation }}</a></td></tr>
+        <tr><th>Documentation</th><td>
+        {% if service.documentation %}
+        <a href="{{ service.documentation }}">{{ service.documentation }}</a>
+        {% endif %}</td></tr>
          <tr><th>First Line</th><td>{{ service.support }}</td></tr>
           
        
@@ -34,9 +38,9 @@
 		 <div class="media ">
 		 {% if service.service_owner.image %}
   <div class="pull-left">
-    <a href="#" class="thumbnail">
-      <img class="media-object" style="width:120px" src="/media/{{ service.service_owner.image }}" alt="Photo of {{service.service_owner}}">
-   </a>
+  
+      <img class="media-object thumbnail" style="width:120px" src="/media/{{ service.service_owner.image }}" alt="Photo of {{service.service_owner}}">
+  
   </div>
   {% endif %}
   <div class="media-body">
@@ -54,9 +58,11 @@
      </div>
         
 		
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="col-sm-3 col-sm-offset-1 service-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-		  
+		  {% if service.logo %}
+		  <img src="/media/{{ service.logo }}">
+		  {% endif %}
 		
 		  </div>
 		  </div>

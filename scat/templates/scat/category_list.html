@@ -26,23 +26,7 @@
 {% endfor %}
 </div>
 
- <div class="service-list">
-	<table class="table table-striped">
-	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
-
-{% for cat in cats %}
- <tr><td><a href="{% url 'category_service' pk=cat.pk %}">{{ cat.category }}</a></td>
  
-	 <td></td>
-	
-       <!-- <p>{{ service.description|linebreaks }}</p>-->
-	</tr>
-
-{% endfor %}
-
-
-</table>
-    </div>
     </div>
 {% endblock %}
 	

@@ -75,7 +75,7 @@ class Service(models.Model):
     service_operations_manager = models.ForeignKey(Person, related_name='som', on_delete=models.CASCADE, default=None, blank=True, null=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
-    documentation = models.CharField(max_length=200, default=None, blank=True, null=True)
+    documentation = models.CharField(max_length=200,  blank=True, null=True)
     logo = models.ImageField(upload_to=only_filename, default=None, blank=True, null=True)
 
     def publish(self):
