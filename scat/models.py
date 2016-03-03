@@ -6,11 +6,21 @@ from time import time
 	
 def only_filename(instance, filename):
     return filename
+    
+class Portfolio(models.Model):
+    name = models.CharField(max_length=200)
+    summary = models.CharField(max_length=140, default=None, blank=True, null=True)
+    image = models.FileField(upload_to=only_filename,default=None, blank=True, null=True)
+    def __str__(self):
+        return self.name
+    class Meta:
+         ordering = ['name']
 
 class Category(models.Model):
     category = models.CharField(max_length=200)
+    portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, default=None, blank=True, null=True)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
-    image = models.CharField(max_length=100,default=None, blank=True, null=True)
+    image = models.FileField(upload_to=only_filename,default=None, blank=True, null=True)
     def __str__(self):
         return self.category
     class Meta:
