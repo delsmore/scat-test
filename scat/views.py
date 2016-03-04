@@ -18,6 +18,10 @@ def category_list(request):
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
+    
+def people_detail(request, pk):
+    people = get_object_or_404(People, pk=pk)
+    return render(request, 'scat/people.html', {'people': people})
 
 #services by category with type = Business	
 def category_service(request, pk):
