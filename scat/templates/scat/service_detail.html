@@ -6,7 +6,7 @@
 <div class="page-header">
 	       <h1 class="service">{{ service.title }}</h1>
     </div>
- <div class="col-md-8">
+ <div class="col-md-12">
 
     <div class="service">
         {% if service.published_date %}
@@ -58,12 +58,5 @@
      </div>
         
 		
-        <div class="col-sm-3 col-sm-offset-1 service-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
-		  {% if service.logo %}
-		  <img src="/media/{{ service.logo }}">
-		  {% endif %}
-		
-		  </div>
-		  </div>
+       
 {% endblock %}

@@ -97,7 +97,7 @@ class Service(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
     business_owner = models.ForeignKey(People, related_name='bo', on_delete=models.CASCADE, default=None, blank=True, null=True)
     service_owner = models.ForeignKey(People, related_name='so', on_delete=models.CASCADE, default=None, blank=True, null=True)
-    som = models.ManyToManyField(People)
+    som = models.ManyToManyField(People, blank=True, null=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200,  blank=True, null=True)
