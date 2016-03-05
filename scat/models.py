@@ -94,16 +94,16 @@ class Service(models.Model):
     type = models.ManyToManyField(Type)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
-    published_date = models.DateTimeField(blank=True, null=True)
     business_owner = models.ForeignKey(People, related_name='bo', on_delete=models.CASCADE, default=None, blank=True, null=True)
     service_owner = models.ForeignKey(People, related_name='so', on_delete=models.CASCADE, default=None, blank=True, null=True)
-    som = models.ManyToManyField(People, blank=True, null=True)
+    som = models.ManyToManyField(People, blank=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200,  blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     availability = models.ForeignKey(Availability, on_delete=models.CASCADE, blank=True, null=True)
     logo = models.ImageField(upload_to=only_filename, default=None, blank=True, null=True)
+    published = models.BooleanField(default=0)
 
     def publish(self):
         self.published_date = timezone.now()

@@ -4,13 +4,43 @@
 
 {% block content %}
 <div class="page-header">
-	       <h1 class="service">person</h1>
-    </div>
- <div class="col-xs-12 col-md-12">
+	       <h1 class="service">{{ people.name }}</h1>
+    </div> 
+    
+    <div class="row">
+ <div class="col-md-12">
 
-    <div class="service">
+   
         
+    
+    
+ <div class="media ">
+		 {% if people.image %}
+  <div class="pull-left">
+  
+      <img class="media-object thumbnail" style="width:120px" src="/media/{{ people.image }}" alt="Photo of {{people.name}}">
+  
+  </div>
+  {% endif %}
+  <div class="media-body">
+    
+	<p>Email: <a href="mailto:{{ service.service_owner.email }}">{{ people.email }}</a></p>
+	<p>Phone: {{ people.telephone }}</p>
+	<p>Dept: {{ people.department }}</p>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+</div>
+		<h2 class="service">Service Owner for:</h2>
+		<ul class="list-group">
+		 {% for service in services %}
+    <li class="list-group-item"><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></li>
+     {% endfor %}
      
+		
+		</ul>
+		 
 		 
     </div>
     

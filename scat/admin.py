@@ -19,6 +19,7 @@ admin.site.register(Status)
 admin.site.register(Provider)
 admin.site.register(Support)
 admin.site.register(Type)
+admin.site.register(Portfolio)
 admin.site.register(Location)
 admin.site.register(Availability)
 

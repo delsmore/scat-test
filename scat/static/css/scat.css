@@ -1,5 +1,6 @@
 body {
-	background:#F5F5F5
+	background:#fff;
+	
 }
 .table {
 	background:#fff
@@ -7,7 +8,7 @@ body {
 .page-header {
 
 	margin-top :80px;
-	
+	padding-left:20px;
 	border-bottom:none;
 	padding-bottom:5px
 }
@@ -16,7 +17,8 @@ h1 {
 h2.service {
 	background:#F4F5F7;
 	font-size:1.8em;
-	padding:8px
+	padding:8px;
+	border-radius:8px
 }
 .navbar-inverse
 {
@@ -49,6 +51,10 @@ table.service-details th {
 	padding:1px 10px 0;
 	border-top:1px solid #ddd
 }
+.main-panel {
+background:#fff
+
+}
 .cat-panel {
 	
 	border-top:8px solid #041E42;
@@ -66,13 +72,13 @@ table.service-details th {
 padding-top: 15px;
   padding-right: 20px;
   padding-bottom: 10px;
-  padding-left: 20px;
+  padding-left: 15px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: transparent;
   }
 h3.panel-heading {
-font-size:1.4em;
+font-size:1.2em;
 margin-top:0;
 
 }
@@ -91,4 +97,8 @@ margin-top:80px;
 border-top:1px solid #ddd;
 padding:10px;
 min-height:200px
+}
+.footer {
+margin-top:50px
+
 }
