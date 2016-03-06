@@ -17,14 +17,14 @@ class Portfolio(models.Model):
          ordering = ['name']
 
 class Category(models.Model):
-    category = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, default=None, blank=True, null=True)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     image = models.FileField(upload_to=only_filename,default=None, blank=True, null=True)
     def __str__(self):
         return self.category
     class Meta:
-        ordering = ['category']
+        ordering = ['name']
         verbose_name_plural = "categories"
 
 		

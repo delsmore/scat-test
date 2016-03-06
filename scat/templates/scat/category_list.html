@@ -3,21 +3,18 @@
 {% block content %}
 
 <div class="page-header">
-	<!---{% if user.is_authenticated %}
-	<a href="{% url 'service_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-	{% endif %}-->
-       <h1>Service Catalogue</h1>
+	
+       <h1></h1>
     </div>
     
 
-   
-   
+  
  
 
 <div class="row">
 {% for cat in cats %}
-  <div class="col-md-3"><div  class="cat-panel"><a href="{% url 'category_service' pk=cat.pk %}"><img width="100%" src="{% static 'images' %}/{{ cat.image }}"> </a>
- <div class="cat-body"> <h3 class="panel-heading"><a href="{% url 'category_service' pk=cat.pk %}">{{ cat.category }}</a></h3></div></div></div>
+  <div class="col-md-3"><div  class="cat-panel"><a href=""><img width="100%" src="{% static 'images' %}/{{ cat.image }}"> </a>
+ <div class="cat-body"> <h3 class="panel-heading"><a href="">{{ cat.name }}</a></h3></div></div></div>
    {% if forloop.last %}
 </div>
 {% else %}
