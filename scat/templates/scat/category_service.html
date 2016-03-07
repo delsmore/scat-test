@@ -23,7 +23,7 @@
    
 {% for service in category.list %}
    
-<tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.title }}</a></td>
+<tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.name }}</a></td>
 
 <td>{{ service.description }}</td>
 <td>{{ service.provider }}</td>

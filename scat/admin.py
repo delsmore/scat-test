@@ -11,8 +11,20 @@ from .models import Location
 from .models import Availability
     
 
+class ServiceAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['name','guid']}),
+        ('Definitions', {'fields': ['summary','description','logo'], 'classes': ['collapse']}),
+        ('Category', {'fields': ['portfolio','category','type'], 'classes': ['collapse']}),
+        ('Dependencies', {'fields': ['requires','required'], 'classes': ['collapse']}),
+        ('Provider', {'fields': ['provider','service_owner','service_operations_manager'], 'classes': ['collapse']}),
+        ('Support & Availability', {'fields': ['documentation','support','location','availability'], 'classes': ['collapse']}),
+        (None,               {'fields': ['published']}),
+    ]
 
-admin.site.register(Service)
+
+
+admin.site.register(Service, ServiceAdmin)
 admin.site.register(People)
 admin.site.register(Category)
 admin.site.register(Status)
@@ -22,6 +34,11 @@ admin.site.register(Type)
 admin.site.register(Portfolio)
 admin.site.register(Location)
 admin.site.register(Availability)
+
+
+
+
+
 
 
 

@@ -15,7 +15,7 @@ from scat.serializers import ServiceSerializer, PeopleSerializer
 
 
 def service_list(request):
-    services = Service.objects.filter().order_by('title')
+    services = Service.objects.filter().order_by('name')
     return render(request, 'scat/service_list.html', {'services':services})
     
 def portfolio_list(request):

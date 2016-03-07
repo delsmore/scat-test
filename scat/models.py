@@ -87,18 +87,20 @@ class Availability(models.Model):
         verbose_name_plural = "availability"
 
 class Service(models.Model):
-    title = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     guid = models.UUIDField(primary_key=False, default=None, null=True, blank=True, editable=True)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     description = models.TextField()
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, default=None, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, blank=True, null=True)
     type = models.ManyToManyField(Type)
+    required = models.ManyToManyField('self', blank=True)
+    requires = models.ManyToManyField('self', blank=True)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     business_owner = models.ForeignKey(People, related_name='bo', on_delete=models.CASCADE, default=None, blank=True, null=True)
     service_owner = models.ForeignKey(People, related_name='so', on_delete=models.CASCADE, default=None, blank=True, null=True)
-    som = models.ManyToManyField(People, blank=True)
+    service_operations_manager = models.ManyToManyField(People, blank=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200,  blank=True, null=True)
@@ -112,10 +114,10 @@ class Service(models.Model):
         self.save()
 
     class Meta:
-         ordering = ['title']
+         ordering = ['name']
 
     def __str__(self):
-        return self.title
+        return self.name
         
     
 
