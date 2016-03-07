@@ -87,7 +87,7 @@ class Availability(models.Model):
         verbose_name_plural = "availability"
 
 class Service(models.Model):
-    guid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True)
+    guid = models.UUIDField(primary_key=False, default=None, editable=True)
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     description = models.TextField()
