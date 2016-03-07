@@ -18,7 +18,7 @@
        <h2 class="service">Service Details</h2>
         <table class="table service-details">
         <tr><th>Description</th><td>{{ service.description }}</td></tr>
-        <tr><th>Category</th><td>{{ service.category }}</td></tr>
+        <tr><th>Category</th><td>{{ service.category.name }}</td></tr>
 		<tr><th>Status</th><td>{{ service.status }}</td></tr>
 		<tr><th>Provider</th><td>{{ service.provider }}</td></tr>
          </table>
@@ -32,7 +32,22 @@
           
        
          </table>
-		 <h2 class="service">Accountability</h2>
+		 
+		  <h2 class="service">Availability</h2>
+		 <table class="table service-details">
+        <tr><th>Location</th><td>
+        {% if service.location %}
+        {{ service.location }}
+        {% endif %}</td></tr>
+         <tr><th>Hours</th><td>
+		 {% if service.availability %}
+		 {{ service.availability }}
+		 {% endif %}</td></tr>
+          
+       
+         </table>
+		 
+		 <h2 class="service">Responsibility</h2>
 		 <div class="content-box">
 		 <h3>Service Owner</h3>
 		

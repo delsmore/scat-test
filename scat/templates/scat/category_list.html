@@ -14,7 +14,7 @@
 <div class="row">
 {% for cat in cats %}
   <div class="col-md-3"><div  class="cat-panel"><a href=""><img width="100%" src="{% static 'images' %}/{{ cat.image }}"> </a>
- <div class="cat-body"> <h3 class="panel-heading"><a href="">{{ cat.name }}</a></h3></div></div></div>
+ <div class="cat-body"> <h3 class="panel-heading"><a href="{% url 'category_service' pk=cat.pk %}">{{ cat.name }}</a></h3></div></div></div>
    {% if forloop.last %}
 </div>
 {% else %}

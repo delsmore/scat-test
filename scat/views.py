@@ -22,10 +22,9 @@ def portfolio_list(request):
     portfolios = Portfolio.objects.filter().order_by('name')
     return render(request, 'scat/portfolio_list.html', {'portfolios':portfolios})
     
-def category_list(request,pk):
-    cats = Category.objects.filter(portfolio_id=pk).order_by('name')
-    portfolio = Portfolio.objects.filter()
-    return render(request, 'scat/category_list.html', {'cats':cats,'portfolio':portfolio})
+def category_list(request):
+    cats = Category.objects.filter().order_by('name')
+    return render(request, 'scat/category_list.html', {'cats':cats})
     
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)

@@ -1,3 +1,4 @@
+import uuid
 from django.db import models
 from django.utils import timezone
 from time import time
@@ -22,7 +23,7 @@ class Category(models.Model):
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     image = models.FileField(upload_to=only_filename,default=None, blank=True, null=True)
     def __str__(self):
-        return self.category
+        return self.name
     class Meta:
         ordering = ['name']
         verbose_name_plural = "categories"
@@ -32,7 +33,7 @@ class Type(models.Model):
     type = models.CharField(max_length=100,  blank=True, null=True)
     def __str__(self):
         return self.type
-		
+
 class Provider(models.Model):
     college = models.CharField(max_length=50)
     school = models.CharField(max_length=150)
@@ -40,7 +41,7 @@ class Provider(models.Model):
         return self.college + ' - ' + self.school
     class Meta:
          ordering = ['college','school']
-		
+
 class People(models.Model):
     uun = models.CharField(max_length=8,default=None, blank=True, null=True)
     name = models.CharField(max_length=100)
@@ -54,7 +55,7 @@ class People(models.Model):
     class Meta:
         ordering = ['name']
         verbose_name_plural = "people"
-		 	
+        
 class Status(models.Model):
     stage = models.CharField(max_length=50)
     def __str__(self):
@@ -69,16 +70,16 @@ class Support(models.Model):
     class Meta:
         ordering = ['team']
         verbose_name_plural = "support"
-		 
+ 
 class Location(models.Model):
     location = models.CharField(max_length=200)
     def __str__(self):
         return self.location
     class Meta:
          ordering = ['location']
-		 
+
 class Availability(models.Model):
-    hours = models.TextField()
+    hours = models.CharField(max_length=200)
     def __str__(self):
         return self.hours
     class Meta:
@@ -86,6 +87,7 @@ class Availability(models.Model):
         verbose_name_plural = "availability"
 
 class Service(models.Model):
+    guid = models.UUIDField(primary_key=False, default=uuid.uuid4, editable=True)
     title = models.CharField(max_length=200)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
     description = models.TextField()
@@ -108,7 +110,7 @@ class Service(models.Model):
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-		
+
     class Meta:
          ordering = ['title']
 
@@ -116,5 +118,4 @@ class Service(models.Model):
         return self.title
         
     
-		
 
