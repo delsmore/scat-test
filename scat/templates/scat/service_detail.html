@@ -4,17 +4,13 @@
 
 {% block content %}
 <div class="page-header">
-	       <h1 class="service">{{ service.title }}</h1>
+	       <h1 class="service">{{ service.name }}</h1>
     </div>
 <div class="row">
  <div class="col-md-12">
 
     <div>
-        {% if service.published_date %}
-          <!--  <div class="date">
-                {{ service.published_date }}
-            </div>-->
-        {% endif %}
+       
        <h2 class="service">Service Details</h2>
         <table class="table service-details">
         <tr><th>Description</th><td>{{ service.description }}</td></tr>
@@ -49,8 +45,9 @@
 		 
 		 <h2 class="service">Responsibility</h2>
 		 <div class="content-box">
-		 <h3>Service Owner</h3>
 		
+		 {% if service.service_owner %}
+		  <h3>Service Owner</h3>
 		 <div class="media ">
 		 {% if service.service_owner.image %}
   <div class="pull-left">
@@ -68,7 +65,7 @@
   </div>
   <div class="clear"></div>
 </div>
-		 
+		 {% endif  %}
     </div>
     
      </div>

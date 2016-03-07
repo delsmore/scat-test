@@ -1,0 +1,31 @@
+{% extends 'scat/base.html' %}
+
+{% block content %}
+    <div class="col-md-12">
+ <div class="page-header">
+
+       <h1>Service Owners</h1>
+    </div>
+
+ <div class="service-list">
+	<table class="table table-striped">
+	 <tr><th>Name</th><th>Category</th><th>Description</th><th>Provider</th></tr>
+
+{% for person in people %}
+
+     
+     <tr><td><a href="{% url 'people_detail' pk=person.pk %}">{{ person.name }}</a></td>
+	 <td>{{ service.category }}</td>
+	 <td>{{ service.description }}</td>
+	<td>{{ service.provider }}</td>
+       <!-- <p>{{ service.description|linebreaks }}</p>-->
+	</tr>
+
+{% endfor %}
+
+
+</table>
+    </div>
+    </div>
+{% endblock %}
+	

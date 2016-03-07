@@ -18,6 +18,10 @@ def service_list(request):
     services = Service.objects.filter().order_by('name')
     return render(request, 'scat/service_list.html', {'services':services})
     
+def so_list(request):
+    people = People.objects.filter().order_by('name')
+    return render(request, 'scat/so_list.html', {'people':people})
+    
 def portfolio_list(request):
     portfolios = Portfolio.objects.filter().order_by('name')
     return render(request, 'scat/portfolio_list.html', {'portfolios':portfolios})
