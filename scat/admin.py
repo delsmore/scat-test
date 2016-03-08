@@ -13,7 +13,7 @@ from .models import Availability
 
 class ServiceAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['name','guid']}),
+        (None,               {'fields': ['name','guid','status']}),
         ('Definitions', {'fields': ['summary','description','logo'], 'classes': ['collapse']}),
         ('Category', {'fields': ['portfolio','category','type'], 'classes': ['collapse']}),
         ('Dependencies', {'fields': ['requires','required'], 'classes': ['collapse']}),

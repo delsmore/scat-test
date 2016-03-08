@@ -18,10 +18,6 @@ def service_list(request):
     services = Service.objects.filter().order_by('name')
     return render(request, 'scat/service_list.html', {'services':services})
     
-def so_list(request):
-    people = People.objects.filter().order_by('name')
-    return render(request, 'scat/so_list.html', {'people':people})
-    
 def portfolio_list(request):
     portfolios = Portfolio.objects.filter().order_by('name')
     return render(request, 'scat/portfolio_list.html', {'portfolios':portfolios})
@@ -33,6 +29,10 @@ def category_list(request):
 def service_detail(request, pk):
     service = get_object_or_404(Service, pk=pk)
     return render(request, 'scat/service_detail.html', {'service': service})
+
+def people_list(request):
+    people = People.objects.filter().order_by('name')
+    return render(request, 'scat/people_list.html', {'people':people})
     
 def people_detail(request, pk):
     people = get_object_or_404(People, pk=pk)
