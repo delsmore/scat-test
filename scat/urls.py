@@ -17,6 +17,5 @@ urlpatterns = [
     url(r'^category/(?P<pk>[0-9]+)/$', views.category_service, name='category_service'),
     url(r'^service/(?P<pk>[0-9]+)/$', views.service_detail, name='service_detail'),
     url(r'^people/(?P<pk>[0-9]+)/$', views.people_detail, name='people_detail'),
-	url(r'^service/new/$', views.service_new, name='service_new'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 admin.site.site_header = 'Service Catalogue Administration'

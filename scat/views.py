@@ -46,23 +46,6 @@ def category_service(request, pk):
     return render(request, 'scat/category_service.html', {'services': services})
     
 
-	
-def service_new(request):
-	if request.method == "POST":
-			form = ServiceForm(request.POST)
-			if form.is_valid():
-				post = form.save(commit=False)
-				post.author = request.user
-				post.published_date = timezone.now()
-				post.save()
-				return redirect('service_detail', pk=post.pk)
-	else:
-		form = ServiceForm()
-	return render(request, 'scat/service_edit.html', {'form': form})
-	
-
-
-
 class JSONResponse(HttpResponse):
     """
     An HttpResponse that renders its content into JSON.
@@ -84,8 +67,6 @@ def api_service_list(request):
         return JSONResponse(serializer.data)
 
    
-        
-
 def api_service_detail(request, pk):
     """
     Retrieve a service.
@@ -108,8 +89,6 @@ def api_people_list(request):
         serializer = PeopleSerializer(people, many=True)
         return JSONResponse(serializer.data)
 
-   
-        
 
 def api_people_detail(request, pk):
     """

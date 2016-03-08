@@ -94,7 +94,7 @@ class Service(models.Model):
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, default=None, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, blank=True, null=True)
     type = models.ManyToManyField(Type)
-    required = models.ManyToManyField('self', blank=True)
+    required_by = models.ManyToManyField('self', blank=True)
     requires = models.ManyToManyField('self', blank=True)
     provider = models.ForeignKey(Provider, on_delete=models.CASCADE, default=None, blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
@@ -108,16 +108,15 @@ class Service(models.Model):
     availability = models.ForeignKey(Availability, on_delete=models.CASCADE, blank=True, null=True)
     logo = models.ImageField(upload_to=only_filename, default=None, blank=True, null=True)
     published = models.BooleanField(default=0)
-
-    def publish(self):
-        self.published_date = timezone.now()
-        self.save()
-
+    
+    
+    def __str__(self):
+        return self.name
+ 
     class Meta:
          ordering = ['name']
 
-    def __str__(self):
-        return self.name
+
         
     
 
