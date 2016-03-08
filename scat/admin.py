@@ -18,7 +18,7 @@ class ServiceAdmin(admin.ModelAdmin):
         ('Category', {'fields': ['portfolio','category','type'], 'classes': ['collapse']}),
         ('Dependencies', {'fields': ['requires','required_by'], 'classes': ['collapse']}),
         ('Provider', {'fields': ['provider','service_owner','service_operations_manager'], 'classes': ['collapse']}),
-        ('Support & Availability', {'fields': ['documentation','support','location','availability'], 'classes': ['collapse']}),
+        ('Support & Availability', {'fields': ['documentation','support','second_line_support','location','availability'], 'classes': ['collapse']}),
         (None,               {'fields': ['published']}),
     ]
 

@@ -103,6 +103,7 @@ class Service(models.Model):
     service_operations_manager = models.ManyToManyField(People, blank=True)
     status = models.ForeignKey(Status, on_delete=models.CASCADE, default=None, blank=True, null=True)
     support = models.ForeignKey(Support, on_delete=models.CASCADE, default=None, blank=True, null=True)
+    second_line_support = models.ForeignKey(Support,related_name='second_line_support', on_delete=models.CASCADE, default=None, blank=True, null=True)
     documentation = models.CharField(max_length=200,  blank=True, null=True)
     location = models.ForeignKey(Location, on_delete=models.CASCADE, blank=True, null=True)
     availability = models.ForeignKey(Availability, on_delete=models.CASCADE, blank=True, null=True)
