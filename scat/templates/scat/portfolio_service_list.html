@@ -1,0 +1,37 @@
+{% extends 'scat/base.html' %}
+
+{% block content %}
+
+{% regroup services by category as category_list %}
+  <div class="page-header">
+	
+      <h1>{{ portfolio.name }}</h1>
+    </div>
+{% for category in category_list %}
+
+
+ <div class="row">
+
+
+  <div class="col-md-12">
+
+<h2>{{category.grouper }}</h2>
+
+
+
+
+   <ul>
+{% for service in category.list %}
+   
+<li><tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.name }}</a></td>    </li>
+
+
+
+{% endfor %}
+</ul>
+{% endfor %}
+
+
+    </div>
+    </div>
+{% endblock %}
