@@ -2,6 +2,7 @@ body {
 	background:#fff;
 	
 }
+
 .table {
 	background:#fff
 }
@@ -13,10 +14,11 @@ body {
 	padding-bottom:5px
 }
 h1 {
+	
 	}
-h2.service {
+h2 {
 	background:#F4F5F7;
-	font-size:1.8em;
+	font-size:1.7em;
 	padding:8px;
 	border-radius:8px
 }
@@ -43,6 +45,10 @@ h2.service {
 {
   color: #fff;
 }
+.main {
+	padding-bottom:30px
+	}
+
 table.service-details th {
 	width:150px
 }
@@ -83,9 +89,8 @@ margin-top:0;
 
 }
 h3.panel-heading a {
- color: #283239;
-  text-decoration-line: none;
-  text-decoration-style: solid;
+  
+  text-decoration: none;
   
 }
 .clear {

@@ -7,23 +7,25 @@
 	
       <h1>{{ portfolio.name }}</h1>
     </div>
-{% for category in category_list %}
-
-
- <div class="row">
+   <div class="row">
 
 
   <div class="col-md-12">
+  
+{% for category in category_list %}
+
+
+
 
 <h2>{{category.grouper }}</h2>
 
 
 
 
-   <ul>
+   <ul class="list-group">
 {% for service in category.list %}
    
-<li><tr><td><a href="{% url 'service_detail' pk=service.pk %}">{{ service.name }}</a></td>    </li>
+<li class="list-group-item"><a href="{% url 'service_detail' pk=service.pk %}"><strong>{{ service.name }}</strong></a></li>
 
 
 
