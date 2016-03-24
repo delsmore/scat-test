@@ -90,7 +90,7 @@ class Service(models.Model):
     name = models.CharField(max_length=200)
     guid = models.UUIDField(primary_key=False, default=None, null=True, blank=True, editable=True)
     summary = models.CharField(max_length=140, default=None, blank=True, null=True)
-    description = models.TextField()
+    description = models.TextField(default=None, blank=True, null=True)
     portfolio = models.ForeignKey(Portfolio, on_delete=models.CASCADE, default=None, blank=True, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=None, blank=True, null=True)
     type = models.ManyToManyField(Type)

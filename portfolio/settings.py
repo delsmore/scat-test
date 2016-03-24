@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 	'scat',
 	'rest_framework',
+    'django_wysiwyg',
+    'ckeditor',
+    'tinymce',
+    'rest_framework_swagger',
+    'taggit',
+    'tagulous',
 	
 ]
 
